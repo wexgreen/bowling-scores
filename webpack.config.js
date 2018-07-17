@@ -20,11 +20,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry:     {
+    entry: {
         main: [
             'babel-polyfill',
             './src/main.js'
-
         ]
     },
     devtool: 'inline-source-map',
@@ -34,21 +33,21 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['docs']),
-        new CopyWebpackPlugin([ { from: 'src/pages/**/*' , flatten:true} ], {})
+        new CopyWebpackPlugin([{ from: 'src/pages/**/*', flatten: true }], {})
     ],
     module: {
-        loaders: [{
-        // Only run `.js` and `.jsx` files through Babel
-            test: /\.js?$/,
-            //skip the files in the node_modules directory
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            // Options to configure the babel. here we have set up the preset. this can be replaced with .babelrc file
-            query: {
-                presets: ['env']
-            }
-        }],
         rules: [
+            {
+                // Only run `.js` and `.jsx` files through Babel
+                test: /\.js?$/,
+                //skip the files in the node_modules directory
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                // Options to configure the babel. here we have set up the preset. this can be replaced with .babelrc file
+                query: {
+                    presets: ['env']
+                }
+            },
             {
                 test: /\.css$/,
                 use: [

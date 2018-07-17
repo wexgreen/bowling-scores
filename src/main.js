@@ -21,6 +21,8 @@ limitations under the License.
 // Bring in the CSS for the formatting, and the animation library
 require('bulma/css/bulma.css');
 require('animate.css/animate.css');
+
+// any additional styling should go into this file
 require('./style.css');
 
 
