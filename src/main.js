@@ -17,7 +17,7 @@ limitations under the License.
 'use strict';
 
 /* global Image */
-
+console.log('hellow world')
 // Bring in the CSS for the formatting, and the animation library
 require('bulma/css/bulma.css');
 require('animate.css/animate.css');
@@ -26,5 +26,23 @@ require('animate.css/animate.css');
 require('./style.css');
 
 
+function addEvent(el, type, handler) {
+	    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
+	}
+	function removeEvent(el, type, handler) {
+	    if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
+	}
+
+document.addEventListener('DOMContentLoaded', function(){
+	    // do something
+       var el = document.querySelector('#select3');
+       var selectValued = document.querySelector('#select3').value;
+       // attach anonymous function to click event
+      addEvent(el, 'click', function(event){ 
+        console.log(event.currentTarget.value); 
+        document.querySelector('#ScoreTot').value="%"
+      })
+      console.log('hellow world')
+	});
 
 
